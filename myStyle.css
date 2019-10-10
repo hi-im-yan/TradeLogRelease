@@ -1,0 +1,44 @@
+hr.strong {
+  border: 1px solid black;
+}
+
+.vh {
+  height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.borda {
+  border-radius: 4px;
+}
+
+.tres {
+  padding: 0px;
+  line-height: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: #f00 #0f0 #00f #fc0;
+  border-width: 10px 50px 90px;
+}
+
+.container-login100 {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Calculadora IqOption</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+    />
+    <link rel="stylesheet" href="myStyle.css" />
+  </head>
+  <body class="">
+    <!-- First View -->
+    <div class=" container-login100 vh text-center">
+      <!-- User buttons -->
+      <div class="row">
+        <!-- <h4 style="color:aquamarine">
+          Essa área é para testar a sua estratégia, catalogue as
+          vitórias/derrotas na corretora e transcreva para cá.
+        </h4>
+        <br />
+        <h5 style="color: aquamarine">
+          Nós daremos as porcentagens do que precisa saber e daremos o feedback
+          da sua catalogação
+        </h5> -->
+        <div class="col-4">
+          <div class="card text-left" style="height: 100%;">
+            <img class="card-img-top" src="" alt="" />
+            <div class="card-body">
+              <h3>Linhas Catalogadas:</h3>
+              <h1 class="text-center" id="counter">0</h1>
+              <br /><br />
+              <span>Vitoria em qual ordem?</span> <br />
+              <button class="btn btn-success" onclick="addLinhaNoCatalogo(1)">
+                1º entrada
+              </button>
+              <button class="btn btn-primary" onclick="addLinhaNoCatalogo(2)">
+                1º MG
+              </button>
+              <button class="btn btn-warning" onclick="addLinhaNoCatalogo(3)">
+                2º MG
+              </button>
+              <button class="btn btn-danger" onclick="addLinhaNoCatalogo(4)">
+                HIT
+              </button>
+              <br />
+            </div>
+          </div>
+        </div>
+        <!-- End of User Buttons -->
+
+        <!-- Statistics Table -->
+        <div
+          class="col-5 justify-content-center card"
+          style="background-color: white;"
+        >
+          <table
+            id="example"
+            class="table table-striped table-inverse table-responsive"
+          >
+            <thead class="thead-inverse">
+              <tr>
+                <th>Ordens</th>
+                <th>Vitórias</th>
+                <th>Vitórias após hit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">Taxa de acerto (%)</td>
+                <td id="successRate">0%</td>
+                <td id="afterHitSuccessRate">0%</td>
+              </tr>
+              <tr>
+                <td scope="row">1º Ordem</td>
+                <td id="successCounter">0 -> --%</td>
+                <td id="successAfterHit">0 -> --%</td>
+              </tr>
+              <tr>
+                <td scope="row">1º Martin Gale</td>
+                <td id="firstMGCounter">0 -> --%</td>
+                <td id="firstMGAfterHit">0 -> --%</td>
+              </tr>
+              <tr>
+                <td scope="row">2º Martin Gale</td>
+                <td id="secondMGCounter">0 -> --%</td>
+                <td id="secondMGAfterHit">0 -> --%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- End Statistics Table -->
+
+        <!-- Other Informations -->
+        <div class="col-3">
+          <div class="card text-left" style="height: 100%">
+            <img class="card-img-top" src="" alt="" />
+            <div class="card-body">
+              <label style="font-weight: bold">Hits:</label>
+              <label id="hitCounter">0 -> --%</label> <br />
+              <label style="font-weight: bold">Hit Duplo:</label>
+              <label id="doubleHit">0 -> --%</label>
+              <hr class="strong" />
+              <label style="font-weight: bold">Média de wins pré hit:</label>
+              <label id="avgWinBeforeHit">0</label>
+              <hr class="strong" />
+              <label style="font-weight: bold">Linhas pré hit</label><br />
+              <label style="font-weight: bold">Verde: </label>
+              <label id="greenBeforeHit">0</label>
+              <br />
+              <label style="font-weight: bold">Azul: </label>
+              <label id="blueBeforeHit">0</label>
+              <br />
+              <label style="font-weight: bold">Amarelo: </label>
+              <label id="yellowBeforeHit">0</label>
+              <br />
+              <label style="font-weight: bold">Vermelho: </label>
+              <label id="redBeforeHit">0</label>
+            </div>
+          </div>
+        </div>
+        <!-- End of Other Informations -->
+
+        <!-- MartingGale And Soros Calculator -->
+        <!-- <div
+          class="col-3 card borda justify-content-center d-flex "
+          style="background-color: white; height: 100%;"
+        >
+          <form>
+            Payout(%):<br />
+            <input type="number" name="payoutValue" placeholder="87" />
+            <br />
+            Valor da ordem:<br />
+            <input
+              type="text"
+              name="orderValue"
+              placeholder="10.00"
+              pattern="^\d+(?:\.\d{1,2})?$"
+            />
+            <br /><br />
+            <input type="submit" value="Submit" /> <br /><br />
+
+            <label for="">oi</label>
+          </form>
+        </div> -->
+        <!-- End of MartinGale And Soros Calculator-->
+      </div>
+
+      <!-- <br /><br /><br /><br /><br />
+      <button>
+        <a href="#secondView" style="transition-duration: 5s;"
+          >Catalogar Gráfico</a
+        >
+      </button> -->
+    </div>
+    <!-- End of First View -->
+
+    <!-- Second View -->
+    <div
+      class="container vh d-flex flex-wrap align-itens-center"
+      id="secondView"
+    >
+      <div class="col-12">
+        <h1 style="color: aliceblue">Teste</h1>
+        <button class="btn btn-default" onclick="createCandle()">
+          Criar Vela
+        </button>
+        <div class="tres"></div>
+      </div>
+    </div>
+    <!-- End of Second View -->
+
+    <script src="Catalogacao.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+      //$("#example").dataTable();
+    </script>
+  </body>
+</html>
